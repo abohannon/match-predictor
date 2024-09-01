@@ -1,4 +1,3 @@
-import random
 from typing import Iterable
 
 from matchpredictor.matchresults.result import Fixture, Outcome, Result
@@ -17,8 +16,8 @@ class AlphabetPredictor(Predictor):
             return Prediction(outcome=Outcome.HOME)
         elif winning_team.name == fixture.away_team.name:
             return Prediction(outcome=Outcome.AWAY)
-
-        return Prediction(outcome=Outcome.DRAW)
+        else:
+            return Prediction(outcome=Outcome.DRAW)
 
 
 def train_alphabet_predictor(results: Iterable[Result]) -> Predictor:
